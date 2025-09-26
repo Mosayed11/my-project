@@ -1,0 +1,4 @@
+
+import ast</p><br /><br /><br /><br /><br /><br />
+<p>Myline = ast.parse(“””print(‘Borma Site’)”””)</p><br /><br /><br /><br /><br /><br />
+<p>exec(compile(Myline, filename=””, mode=”exec”))
