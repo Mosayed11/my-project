@@ -1,22 +1,47 @@
 
 
 
-def add_task():
-      task = input()
-   
-  
-def mark_task_completed():
-   ...
-def view_tasks():
-   ...   
 
-massage = """ 1 - Add a task
-2 - mark a task as completed
-3- View tasks
+tasks = []
+
+def add_task():
+    task = input("Enter a new task: ")
+    tasks.append({"task": task, "completed": False})
+    print(f"Task '{task}' added successfully!")
+
+def mark_task_completed():
+    view_tasks()
+    if not tasks:
+        return
+    try:
+        task_num = int(input("Enter the task number to mark as completed: "))
+        if 1 <= task_num <= len(tasks):
+            tasks[task_num - 1]["completed"] = True
+            print(f"Task {task_num} marked as completed ✅")
+        else:
+            print("Invalid task number!")
+    except ValueError:
+        print("Please enter a valid number.")
+
+def view_tasks():
+    if not tasks:
+        print("No tasks available.")
+    else:
+        print("\nYour Tasks:")
+        for idx, task in enumerate(tasks, 1):
+            status = "✔ Done" if task["completed"] else "❌ Not Done"
+            print(f"{idx}. {task['task']} [{status}]")
+    print()
+
+message = """\n
+1 - Add a task
+2 - Mark a task as completed
+3 - View tasks
 4 - Exit
 """
+
 while True:
-    print(massage)
+    print(message)
     choice = input("Enter your choice: ")
     if choice == "1":
         add_task()
@@ -25,6 +50,9 @@ while True:
     elif choice == "3":
         view_tasks()
     elif choice == "4":
-        print("Exiting the task manager.")
+        print("Exiting the task manager. Goodbye! 👋")
         break
+    else:
+        print("Invalid choice! Please select 1-4.")
+
 
