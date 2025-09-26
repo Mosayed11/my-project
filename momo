@@ -1,0 +1,30 @@
+
+
+
+def add_task():
+      task = input()
+   
+  
+def mark_task_completed():
+   ...
+def view_tasks():
+   ...   
+
+massage = """ 1 - Add a task
+2 - mark a task as completed
+3- View tasks
+4 - Exit
+"""
+while True:
+    print(massage)
+    choice = input("Enter your choice: ")
+    if choice == "1":
+        add_task()
+    elif choice == "2":
+        mark_task_completed()
+    elif choice == "3":
+        view_tasks()
+    elif choice == "4":
+        print("Exiting the task manager.")
+        break
+
